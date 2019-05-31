@@ -1,0 +1,12 @@
+<div class="logo"></div>
+<ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+  <ng-container *ngFor="let group of routes">
+    <ng-container *ngFor="let child of group.children">
+      <li *ngIf="child.data.display" nz-menu-item  [routerLink]="['/' + group.path, child.path]">
+        {{child.data.name}}
+      </li>
+    </ng-container>
+
+  </ng-container>
+
+</ul>
