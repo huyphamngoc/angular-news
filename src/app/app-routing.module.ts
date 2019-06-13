@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule, Route} from '@angular/router';
 import {ListNewsComponent} from './modules/news/list-news/list-news.component';
 import {DetailNewsComponent} from './modules/news/detail-news/detail-news.component';
+import {FormCrawlComponent} from './modules/crawl/form-crawl/form-crawl.component';
 
 export const routes = {
     NEWS_GROUP: {
@@ -9,7 +10,15 @@ export const routes = {
         path: 'news',
         children: [
             {
-                path: 'list',
+                path: ':id',
+                component: ListNewsComponent,
+                data: {
+                    name: 'Bài viết1',
+                    display: false
+                }
+            },
+            {
+                path: '',
                 component: ListNewsComponent,
                 data: {
                     name: 'Bài viết',
@@ -17,28 +26,35 @@ export const routes = {
                 }
             },
             {
-                path: 'detail',
+                path: 'detail/:url',
                 component: DetailNewsComponent,
                 data: {
                     name: 'Chi tiết',
-                    display: true
+                    display: false
                 }
             },
+        ] as Routes
+    },
+    CRAWL_GROUP: {
+        name: 'Crawl',
+        path: 'crawl',
+        children: [
             {
-                path: 'tung',
-                component: DetailNewsComponent,
+                path: '',
+                component: FormCrawlComponent,
                 data: {
-                    name: 'tung',
-                    display: true
+                    name: 'Crawl',
+                    display: false
                 }
             }
         ] as Routes
     }
 };
 
+
 const matchAll: Route = {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'news',
     pathMatch: 'full'
 };
 
@@ -46,5 +62,6 @@ const matchAll: Route = {
     imports: [RouterModule.forRoot([matchAll])],
     exports: [RouterModule]
 })
+
 export class AppRoutingModule {
 }

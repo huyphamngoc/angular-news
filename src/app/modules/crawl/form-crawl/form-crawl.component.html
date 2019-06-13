@@ -1,0 +1,50 @@
+<div nz-row nzType="flex" nzJustify="center" nzAlign="top">
+    <div nz-col [nzLg]="{span: 12}">
+        <form nz-form [formGroup]="profileForm" method="post">
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="url">URL</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="url" id="url" placeholder="url"/>
+                    <!--<nz-form-explain *ngIf="validateForm.get('url')?.dirty && validateForm.get('email')?.errors">-->
+                    <!--The input is not valid E-mail!-->
+                    <!--</nz-form-explain>-->
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="titleSelector">Tilte</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="titleSelector" id="titleSelector" placeholder="title"/>
+                    <!--<nz-form-explain *ngIf="validateForm.get('url')?.dirty && validateForm.get('email')?.errors">-->
+                    <!--The input is not valid E-mail!-->
+                    <!--</nz-form-explain>-->
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="contentSelector">Content</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="contentSelector" id="contentSelector" placeholder="content"/>
+                    <!--<nz-form-explain *ngIf="validateForm.get('url')?.dirty && validateForm.get('email')?.errors">-->
+                    <!--The input is not valid E-mail!-->
+                    <!--</nz-form-explain>-->
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nz-row style="margin-bottom:8px;">
+                <nz-form-control [nzSpan]="14" [nzOffset]="5">
+                    <button style="margin-right: 10px" (click)="onPreview()" nz-button nzType="primary">Preview</button>
+                    <button (click)="onSubmit()" nz-button nzType="primary">Save</button>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="News Crawl"
+              (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzWidth]="1000">
+        <div>
+            <h3>{{crawl.title}}</h3>
+            <div [innerHTML]="san.bypassSecurityTrustHtml(crawl.content)">
+
+            </div>
+        </div>
+    </nz-modal>
+</div>
+
+

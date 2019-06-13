@@ -1,0 +1,10 @@
+<ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'">
+    <ng-container *ngFor="let group of category">
+        <li nz-menu-item >
+            <a routerLink="news/{{group.category_url}}"
+               routerLinkActive="active"
+               (click)="onSelectItem()"
+            >{{group.name}}</a>
+        </li>
+    </ng-container>
+</ul>

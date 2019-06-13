@@ -1,12 +1,61 @@
-<div class="logo"></div>
-<ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
-  <ng-container *ngFor="let group of routes">
-    <ng-container *ngFor="let child of group.children">
-      <li *ngIf="child.data.display" nz-menu-item  [routerLink]="['/' + group.path, child.path]">
-        {{child.data.name}}
-      </li>
-    </ng-container>
+<div nz-row nzType="flex" nzJustify="center" nzAlign="top">
+    <div nz-col [nzLg]="{span: 4}" class="logo" [nzXs]="{span: 12}" [nzMd]="{span: 8}">
+        <h3 style=" margin-bottom: 0">
+            <a routerLink="news">
+                <img style="height: 45px; width: 48px" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo">
+            </a>
+        </h3>
+    </div>
 
-  </ng-container>
+    <div nz-col [nzLg]="{span: 16}" [nzXs]="{span:12}" [nzMd]="{span: 16}" class="menu-right">
+        <div id="search-menu">
+            <form nz-form style="margin-top: 15px">
+                <nz-form-item>
+                    <nz-form-control [nzLg]="10">
+                        <input nz-input type="text" placeholder="Search"/>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </div>
+        <!--<ul id="menu-pc" nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'"-->
+            <!--style="line-height: 64px; border-bottom: none;">-->
+            <!--<ng-container *ngFor="let group of routes">-->
+                <!--<ng-container *ngFor="let child of group.children">-->
+                    <!--<li *ngIf="child.data.display" nz-menu-item [routerLink]="['/' + group.path, child.path]">-->
+                        <!--{{child.data.name}}-->
+                    <!--</li>-->
+                <!--</ng-container>-->
+            <!--</ng-container>-->
+        <!--</ul>-->
+        <button class="button-drawer float-right" nz-button nzType="default" (click)="open()"><i nz-icon nzType="bars" nzTheme="outline"></i>
+        </button>
+        <nz-drawer
+                [nzClosable]="false"
+                [nzVisible]="isVisible"
+                [nzPlacement]="placement"
+                (nzOnClose)="close()"
+        >
+            <app-slider (selectMenu)="close()"></app-slider>
+        </nz-drawer>
 
-</ul>
+    </div>
+</div>
+
+<!--<div nz-row nzType="flex" nzJustify="center" nzAlign="top" id="menu-category-pc">-->
+    <!--<div nz-col [nzLg]="{span:24}">-->
+        <!--<ul class="menu-category-pc" nz-menu [nzMode]="'horizontal'" style="padding: 0 90px">-->
+            <!--<li class="item-menu-category-pc" nz-menu-item>-->
+                <!--<a class="text-light" routerLink="news">-->
+                    <!--<i nz-icon nzType="home" nzTheme="outline"></i>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<ng-container *ngFor="let listCate of category">-->
+                <!--<li class="item-menu-category-pc" nz-menu-item>-->
+                    <!--<a class="text-light" routerLink="news/{{listCate.category_url}}" routerLinkActive="active">-->
+                        <!--{{listCate.name}}-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ng-container>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
