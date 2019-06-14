@@ -41,21 +41,21 @@
     </div>
 </div>
 
-<!--<div nz-row nzType="flex" nzJustify="center" nzAlign="top" id="menu-category-pc">-->
-    <!--<div nz-col [nzLg]="{span:24}">-->
-        <!--<ul class="menu-category-pc" nz-menu [nzMode]="'horizontal'" style="padding: 0 90px">-->
-            <!--<li class="item-menu-category-pc" nz-menu-item>-->
-                <!--<a class="text-light" routerLink="news">-->
-                    <!--<i nz-icon nzType="home" nzTheme="outline"></i>-->
-                <!--</a>-->
-            <!--</li>-->
-            <!--<ng-container *ngFor="let listCate of category">-->
-                <!--<li class="item-menu-category-pc" nz-menu-item>-->
-                    <!--<a class="text-light" routerLink="news/{{listCate.category_url}}" routerLinkActive="active">-->
-                        <!--{{listCate.name}}-->
-                    <!--</a>-->
-                <!--</li>-->
-            <!--</ng-container>-->
-        <!--</ul>-->
-    <!--</div>-->
-<!--</div>-->
+<div nz-row nzType="flex" nzJustify="center" nzAlign="top" id="menu-category-pc">
+    <div nz-col [nzLg]="{span:24}">
+        <ul class="menu-category-pc" nz-menu [nzMode]="'horizontal'" style="padding: 0 90px">
+            <li class="item-menu-category-pc" nz-menu-item>
+                <a class="text-light" routerLink="news">
+                    <i nz-icon nzType="home" nzTheme="outline"></i>
+                </a>
+            </li>
+            <ng-container *ngFor="let listCate of category">
+                <li class="item-menu-category-pc" nz-menu-item>
+                    <a class="text-light" routerLink="news/{{listCate.category_url}}" routerLinkActive="active">
+                        {{listCate.name}}
+                    </a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</div>

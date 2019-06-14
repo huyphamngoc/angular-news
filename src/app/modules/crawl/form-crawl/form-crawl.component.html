@@ -13,8 +13,10 @@
             <nz-form-item>
                 <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="titleSelector">Tilte</nz-form-label>
                 <nz-form-control [nzSm]="14" [nzXs]="24">
-                    <input nz-input formControlName="titleSelector" id="titleSelector" placeholder="title"/>
-                    <!--<nz-form-explain *ngIf="validateForm.get('url')?.dirty && validateForm.get('email')?.errors">-->
+                    <nz-input-group>
+                        <input nz-input formControlName="titleSelector" id="titleSelector" placeholder="title"/>
+                    </nz-input-group>
+                    <!--<nz-form-explain *ngIf="profileForm.get('title')?.dirty && profileForm.get('title')?.errors">-->
                     <!--The input is not valid E-mail!-->
                     <!--</nz-form-explain>-->
                 </nz-form-control>

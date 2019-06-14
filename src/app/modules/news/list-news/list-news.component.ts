@@ -21,7 +21,6 @@ export class ListNewsComponent implements OnInit, OnDestroy {
     constructor(private newsService: NewsService, private activateRoute: ActivatedRoute) {
         this.activateRoute.params.subscribe(
             value => {
-                console.log(value.id);
                 this.id = value.id;
                 this.refresh();
             }
